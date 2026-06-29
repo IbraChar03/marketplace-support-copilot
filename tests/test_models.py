@@ -1,4 +1,4 @@
-from app.models import Listing
+from app.models import Listing, Dealer
 import pytest
 from pydantic import ValidationError
 
@@ -16,7 +16,7 @@ def test_listing_invalido():
         Listing(id="CAR-1", dealer_id="D1", status="BOH", missing_fields=["vin_photo"])
 
 
-def test_missing_fields_default_vuoto():
+def test_listing_missing_fields_default_vuoto():
     listing = Listing(
         id="CAR-1",
         dealer_id="D1",
@@ -24,3 +24,34 @@ def test_missing_fields_default_vuoto():
     )
 
     assert listing.missing_fields == []
+
+
+def test_dealer_valido():
+    dealer = Dealer(
+        id="DEALER-1",
+        name="autocar",
+        onboarding_status="pending",
+        missing_documents=["pdf"],
+    )
+    assert dealer.onboarding_status == "pending"
+    assert dealer.missing_documents == ["pdf"]
+
+
+def test_dealer_invalido():
+    with pytest.raises(ValidationError):
+        Dealer(
+            id="DEALER-1",
+            name="autocar",
+            onboarding_status="bho",
+            missing_documents=["pdf"],
+        )
+
+
+def test_dealer_missing_documents_default_vuoto():
+    dealer = Dealer(
+        id="DEALER-1",
+        name="autocar",
+        onboarding_status="pending",
+    )
+
+    assert dealer.missing_documents == []
