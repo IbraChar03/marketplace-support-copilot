@@ -1,0 +1,24 @@
+[
+    {
+        "id": "CAR-1",
+        "dealer_id": "D1",
+        "status": "published",
+        "missing_fields": []
+    },
+    {
+        "id": "CAR-2",
+        "dealer_id": "D1",
+        "status": "rejected",
+        "missing_fields": [
+            "vin_photo"
+        ]
+    },
+    {
+        "id": "CAR-3",
+        "dealer_id": "D2",
+        "status": "pending_review",
+        "missing_fields": [
+            "registration_document"
+        ]
+    }
+]

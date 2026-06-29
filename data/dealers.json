@@ -1,0 +1,24 @@
+[
+    {
+        "id": "D1",
+        "name": "Rossi Auto",
+        "onboarding_status": "active",
+        "missing_documents": []
+    },
+    {
+        "id": "D2",
+        "name": "Milano Motors",
+        "onboarding_status": "pending",
+        "missing_documents": [
+            "visura_camerale"
+        ]
+    },
+    {
+        "id": "D3",
+        "name": "Torino Car",
+        "onboarding_status": "suspended",
+        "missing_documents": [
+            "documento_identita"
+        ]
+    }
+]
